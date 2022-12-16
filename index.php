@@ -2,14 +2,16 @@
 require_once "header.php";
 
 
+
+
 $array1 = [0, ["a" => 332, 1, 2, 3], 2, 3, 4];
 
 
 //  $key => $value
 $users = [
-    ["id" => 1, "firstName" => "Martin", "lastName" => "Karadzinov", "email" => "martin@myhost.mk"],
-    ["id" => 2, "firstName" => "Filip", "lastName" => "Dobrevski", "email" => "filip@pingdevs.com"],
-    ["id" => 3, "firstName" => "Vlado", "lastName" => "Kostovski", "email" => "vlado@pingdevs.com"],
+    ["firstName" => "Martin", "lastName" => "Karadzinov", "email" => "martin@myhost.mk"],
+    ["firstName" => "Filip", "lastName" => "Dobrevski", "email" => "filip@pingdevs.com"],
+    ["firstName" => "Vlado", "lastName" => "Kostovski", "email" => "vlado@pingdevs.com"],
 ];
 
 
@@ -88,6 +90,12 @@ switch ($color) {
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
+            <a href="/user.php?email=martin@pingdevs.com&id=1&lastName=Karadzinov">Klikni me</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
             <table class="table">
                 <thead>
                 <tr>
@@ -100,10 +108,10 @@ switch ($color) {
                 <tbody>
                 <?php
 
-                foreach ($users as $user) {
+                foreach ($users as $index => $user) {
                     echo '
                 <tr>
-                    <td>' . $user["id"] . '</td>
+                    <td><a href="/user.php?id='.$index.'">' . $index . '</a></td>
                     <td>' . $user["firstName"] . '</td>
                     <td>' . $user["lastName"] . '</td>
                     <td>' . $user["email"] . '</td>
